@@ -17,9 +17,9 @@ logger.emit('error', 'Eggs raked');
 
 ```http.createServer(function(request, response) {...});```    //create with parameters
 ###### OR
-```var server = http.createServer();			//create without parameters
-server.on('request', function(request, response){...});	//you could listen to multiple event listener this way or have multiple function to listen to the same event
-```
+```var server = http.createServer();```		//create without parameters
+```server.on('request', function(request, response){...});```	//you could listen to multiple event listener this way or have multiple function to listen to the same event
+
 ---
 
 ### Exercises
