@@ -1,4 +1,4 @@
-LEVEL 3 | Streams
+## LEVEL 3 | Streams
 
 Can be READABLE(request),	WRITABLE (response) or  BOTH
 
@@ -54,7 +54,8 @@ http.creatServer(function(request, response){
 }).listen(8080);
 ```
 And with ```$ curl -d 'hello' http://localhost:8080```       //Hello on client
-PIPE OUTPUT OF THE FIRST FUNCTION = INPUT OF SECOND FUNCTION
+
+IN PIPE OUTPUT OF THE FIRST FUNCTION = INPUT OF THE SECOND FUNCTION
 
 ---
 ```
