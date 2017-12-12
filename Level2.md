@@ -2,7 +2,8 @@
 
 ### Custom event emitter
 
-```var EventEmitter = require('events').EventEmitter;
+```
+var EventEmitter = require('events').EventEmitter;
 var logger = new EventEmitter();		//error  warn   info
 
 logger.on('error', function(message) {
@@ -18,6 +19,7 @@ logger.emit('error', 'Eggs raked');
 ```http.createServer(function(request, response) {...});```    //create with parameters
 ###### OR
 ```var server = http.createServer();```		//create without parameters
+
 ```server.on('request', function(request, response){...});```	//you could listen to multiple event listener this way or have multiple function to listen to the same event
 
 ---
@@ -26,7 +28,8 @@ logger.emit('error', 'Eggs raked');
 
 #### Chat Emitter
 
-```var events = require('events');
+```
+var events = require('events');
 var EventEmitter = events.EventEmitter;
 var chat = new EventEmitter();
 chat.on('message', function(message){
@@ -36,7 +39,8 @@ chat.on('message', function(message){
 ---
 #### Request Event
 
-```var http = require('http');
+```
+var http = require('http');
 
 var server = http.createServer();
 server.on('request', function(request, response) {
