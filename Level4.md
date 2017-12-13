@@ -2,7 +2,7 @@
 
 |               custom_hello.js        |
 |--------------------------------------|
-```
+```js
 var hello = function(){
   console.log("hello!");
 }
@@ -12,7 +12,7 @@ module.exports = hello;    //We can have only one module to export , only public
 
 |              custom_goodbye.js       |
 |--------------------------------------|
-```
+```js
 exports.goodbye = function() {	//We can have multiple public methods
 	console.log('bye!');
 }
@@ -20,18 +20,17 @@ exports.goodbye = function() {	//We can have multiple public methods
 
 |               app.js                 |
 |--------------------------------------|
-```
+```js
 var hello = require('./custom_hello');	
 hello();
 
-	
 var gb = require('./custom_goodbye');		//Or  require('./custom_goodbye').goodbye();//if we only need to call once
 gb.goodbye();
 ```
 ---
 |             my_module.js             |
 |--------------------------------------|
-```
+```js
 var foo = function(){...}
 var bar = function(){...}
 var baz = function(){...}
@@ -42,7 +41,7 @@ exports.bar = bar;
 
 |               app.js                 |
 |--------------------------------------|
-```
+```js
 var myMod = require('./my_module');
 myMod.foo();
 myMod.bar();
@@ -51,7 +50,9 @@ myMod.bar();
 
 |          make_request.js             |
 |--------------------------------------|
-```
+```js
+var http = require('http');
+
 var makeRequest = function(message) {
 	
 	var options = {
@@ -73,26 +74,30 @@ module.exports = makeRequest;
 
 |               app.js                 |
 |--------------------------------------|
-```
+```js
 var makeRequest = require('./make_request');
 makeRequest("Hello, this is dog.");
 ```
 ---
 #### Installing a NPM module
 
-`$ npm install request`
+```bash
+$ npm install request
+```
 ---
 #### Making http request
 
-`var http = require('http');`
+```js
+var http = require('http');
+```
 ---
 #### Install modules with executables globally
 
-```
+```bash
 $ npm install coffee-script -g		//global
 ``` 	
 
-```
+```bash
 $ coffee app.coffee			//local
 ```		
 ---
@@ -106,6 +111,9 @@ var coffee = require('coffee-script');	//X
 $ npm install coffee-script   		//install them locally
 var coffee = require('coffee-script');
 ```
+Look for existing libraries here : [npm registry](https://www.npmjs.com/package/npm-registry)
+
+---
 
 { "connect": "1.8.7"}
 
