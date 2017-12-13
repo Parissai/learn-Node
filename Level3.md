@@ -3,7 +3,7 @@
 Can be READABLE(request),	WRITABLE (response) or  BOTH
 
 ---
-```
+```js
 http.createServer(function(request, response){
 	response.writeHead(200);
 	response.write("<p>Dog is running.</p>");
@@ -15,7 +15,7 @@ http.createServer(function(request, response){
 }).listen(8080);
 ```
 ---
-```
+```js
 http.creatServer(function(request, response){
 	response.writeHead(200);
 	request.on('readable', function(){
@@ -32,7 +32,7 @@ http.creatServer(function(request, response){
 ---
 
 ### PIPE THESE TWO TOGETHER 
-```
+```js
 request.on('readable', function(){
 	var chunk = null;
 	while (null !== (chunk = request.read())){
@@ -43,11 +43,13 @@ request.on('end', function(){
 	response.end();
 });
 ```
-====
-```request.pipe(response);``` 
+===
+```js
+request.pipe(response);
+``` 
 
 SO 
-```
+```js
 http.creatServer(function(request, response){
 	response.writeHead(200);
 	request.pipe(response);
@@ -58,7 +60,7 @@ And with ```$ curl -d 'hello' http://localhost:8080```       //Hello on client
 IN PIPE OUTPUT OF THE FIRST FUNCTION = INPUT OF THE SECOND FUNCTION
 
 ---
-```
+```js
 var fs = require('fs');	//require filesystem module
 
 var file = fs.createReadStream('readme.md');
@@ -67,7 +69,7 @@ var newFile = fs.createWriteStream('readme_copy.md');
 file.pipe(newFile);
 ```
 ---
-```
+```js
 var fs = require('fs');
 var http = require('http');
 
@@ -80,11 +82,13 @@ http.createServer(function(request, response){
 	});
 }).listen(8080);
 ```
-```$ curl --upload-file readme.md http://localhost:8080```
+```bash
+$ curl --upload-file readme.md http://localhost:8080
+```
 ---
 
 ### UPLOADING A FILE
-```
+```js
 http.createServer(function(request, response){
 	var newFile = fs.createWriteStream("readme_copy.md");
 	var fileBytes = request.headers['content-length'];
@@ -101,7 +105,8 @@ http.createServer(function(request, response){
 	...
 }).listen(8080);
 ```
-```$ node app.js	//Listening on port 8080
+```bash
+$ node app.js	//Listening on port 8080
 $ curl --upload-file large_file.jpg http://localhost:8080
 1%
 2%
@@ -115,7 +120,8 @@ $ curl --upload-file large_file.jpg http://localhost:8080
 
 #### File Read Stream
 
-```var fs = require('fs');
+```js
+var fs = require('fs');
 var file = fs.createReadStream('fruits.txt');
 
 file.on('readable', function(){
@@ -129,7 +135,8 @@ file.on('readable', function(){
 
 #### File Piping
 
-```var fs = require('fs');
+```js
+var fs = require('fs');
 
 var file = fs.createReadStream('fruits.txt');
 file.pipe(process.stdout);
@@ -138,7 +145,8 @@ file.pipe(process.stdout);
 
 #### Fixing Pipe
 
-```var fs = require('fs');
+```js
+var fs = require('fs');
 
 var file = fs.createReadStream('origin.txt');
 var destFile = fs.createWriteStream('destination.txt');
